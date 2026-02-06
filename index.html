@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farid resturant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CART SIDEBAR -->
+<div id="cartSidebar" class="cart-sidebar">
+  <h2>Your Cart</h2>
+  <div id="cartItems"></div>
+  <p id="cartTotal">Total: $0</p>
+  <button onclick="openCheckout()">Checkout</button>
+  
+  <button onclick="CloseCart()" class="close-btn">Close</button>
+</div>
+
+
+<!-- CHECKOUT POPUP -->
+<div id="checkoutPopup" class="checkout-popup">
+  <div class="checkout-box">
+    <h2>Checkout</h2>
+
+    <input id="name" type="text" placeholder="Name">
+    <input id="phone" type="text" placeholder="Phone Number">
+    <input id="location" type="text" placeholder="Location">
+
+    <label>Delivery Area:</label>
+    <select id="deliveryArea">
+      <option value="2">Beirut - $2</option>
+      <option value="3">Outside Beirut - $3</option>
+    </select>
+
+    <textarea id="notes" placeholder="Notes (optional)"></textarea>
+
+    <button onclick="sendOrder()">Send Order via WhatsApp</button>
+    <button onclick="closeCheckout()" class="close-btn">Close</button>
+  </div>
+</div>
+<div id="home"></div>
+  <!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <div class="side-header">
+    <img src="farid.jpg" alt="Farid" />
+    <span id="closeMenu">✕</span>
+  </div>
+
+  <a href="#home" class="menu-link">🏠 Home</a>
+  <a href="#sandwiches" class="menu-link">📖 Menu</a>
+  <a href="#contact" class="menu-link">📞 Contact</a>
+</div>
+
+
+<div class="slider">
+
+  <div class="slide active" style="background-image:url('h1.jpeg')">
+    <div class="overlay">
+      <h2>CRAFTED WITH CARE,</h2>
+      <p>SERVED WITH LOVE.</p>
+      <button>SHOP NOW</button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image:url('F1.jpg')">
+    <div class="overlay">
+      <h2>FRESH MEAT,</h2>
+      <p>MADE DAILY.</p>
+      <button>ORDER NOW</button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image:url('san2.jpeg')">
+    <div class="overlay">
+      <h2>MIXED SANDWICHES,</h2>
+      <p>PERFECT TASTE.</p>
+      <button>TRY NOW</button>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <span id="prev">‹</span>
+    <span id="next">›</span>
+  </div>
+
+  <!-- Dots -->
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><img src="farid.jpg" style="height: 75px;"> </div>
+  <div class="actions">
+   <button class="cart-btn" onclick="toggleCart()">🛒 Cart </button>
+    <div class="menu">☰</div>
+  </div>
+</header>
+
+
+
+<!-- SLIDER -->
+<section class="slider">
+  <div class="slide active">
+    <img src="F1.jpg" />
+    <div class="overlay">
+      <h2>SANDWICH DREAMS, TOPPED YOUR WAY.</h2>
+
+      <a href="#section" class="hero-btn" style="width:150px;">SHOP NOW</a>
+     
+     
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <h2>CATEGORIES</h2>
+ 
+  <div class="arrows">
+    <span>‹</span><span>›</span>       
+  </div>
+
+<div class="categories">
+    <div class="cat-card">
+      <a href="#sandwiches"><img src="san.jpeg"></a>
+      <p>Sandwiches</p>
+    </div>
+  <div class="categories">
+    <div class="cat-card">
+     <a href="#Salad"><img src="https://tse2.mm.bing.net/th/id/OIP.mtb0tkv_VOOPKM2KoP_EsAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"></a>
+      <p>Salad</p>
+</div>
+    
+    <div class="cat-card">
+      <a href="#Soft-Drinks"><img src="https://static.vecteezy.com/system/resources/previews/030/657/687/large_2x/coca-cola-light-with-white-background-high-quality-free-photo.jpg"></a>
+      <p>Soft Drinks</p>
+    </div>
+
+    <div class="cat-card">
+      <a href="#Appetizers"><img src="https://img.freepik.com/premium-photo/french-fries-isolated-white-background_187241-6180.jpg?w=2000"></a>
+      <p>Appetizers</p>
+    </div>
+ 
+    
+  
+</section>
+
+<!-- MOST RECOMMENDED -->
+<section id="section" class="section">
+  <h2>MOST RECOMMENDED</h2>
+
+    <div class="products">
+
+    <div class="product-card">
+      <img src="https://img.freepik.com/premium-photo/hummus-container-viewed-from-isolated-white_908985-119688.jpg">
+      <h3>Hummus</h3>
+      <p class="desc">مع 2 رغيف خبز وعلبة زيت زيتون</p>
+       <button  onclick="addToCart('hummus',2.1)">Add to Cart</button>
+      <div class="price">L.L 190,000</div>
+    </div>
+
+   <div class="product-card">
+      <img src="fatayl.jpeg">
+      <h3>Fatayel</h3>
+      <p class="desc">مع بندورة ومخلل وحامض محمصة </p>
+       <button onclick="addToCart('Fatayel',4)">Add to Cart</button>
+      <div class="price">L.L 180,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="sausage.jpeg" >
+      <h3>Sausage</h3>
+      <p class="desc">مع بندورة وخس ومخلل ,مايونيز</p>
+        <button onclick="addToCart('Sausage',4)">Add to Cart</button>
+      <div class="price">L.L 150,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="Djej.jpeg">
+      <h3>DJEJ </h3>
+      <p class="desc">مع بندورة ومخلل مايونيز وصوص فريد</p>
+       <button onclick="addToCart('DJEJ',4)">Add to Cart</button>
+      <div class="price">L.L 180,000</div>
+    </div>
+
+  </div>
+</section>
+<!--Sandwiches-->
+
+<p>_______________________________________________</p>
+<section id="sandwiches" class="section">
+   <h2> 🍽️ SANDWICHES </h2>
+<div class="products">
+
+   <div class="product-card">
+      <img src="fatayl.jpeg">
+      <h3>Fatayel</h3>
+      <p class="desc">مع بندورة ومخلل وحامض محمصة </p>
+             <button onclick="addToCart('Fatayel',4)">Add to Cart</button>
+
+      <div class="price">L.L 180,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="sausage.jpeg" >
+      <h3>Sausage</h3>
+      <p class="desc">مع بندورة وخس ومخلل ,مايونيز</p>
+        <button onclick="addToCart('Sausage',4)">Add to Cart</button>
+
+      <div class="price">L.L 150,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="Djej.jpeg">
+      <h3>DJEJ </h3>
+      <p class="desc">مع بندورة ومخلل مايونيز وصوص فريد</p>
+       <button onclick="addToCart('DJEJ',4)">Add to Cart</button>
+
+      <div class="price">L.L 180,000</div>
+    </div>
+
+  </div>
+
+</section>
+<p>_______________________________________________</p>
+<!--Salad-->
+<section id="Salad" class="section">
+   <h2>🍽️ SALAD</h2>
+<div class="products">
+
+   <div class="product-card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.mtb0tkv_VOOPKM2KoP_EsAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+      <h3>Tuna Pasta Salad</h3>
+      <p class="desc">خس آيسبرغ، باستا فوسيلي، تونة، أوريجانو، صلصة تونة مع تتبيلة مايو و خردل</p>
+             <button onclick="addToCart('Tuna Pasta Salad',4)">Add to Cart</button>
+
+      <div class="price">L.L 180,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.mtb0tkv_VOOPKM2KoP_EsAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" >
+      <h3>Rocca Salad</h3>
+      <p class="desc">جرجير، طماطم كرزي، فطر طازج، شمندر، جبن فيتا، أوريجانو، إكليل الجبل</p>
+                   <button onclick="addToCart('Rocca Salad',4)">Add to Cart</button>
+
+      <div class="price">L.L 150,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.mtb0tkv_VOOPKM2KoP_EsAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+      <h3>Greek Salad</h3>
+      <p class="desc">خس آيسبيرج، فلفل أخضر، طماطم كرزية، زيتون، خيار، جبنة فيتا، تتبيلة زيت الزيتون والليمون</p>
+        <button onclick="addToCart('Greek Salad',4)">Add to Cart</button>
+
+      <div class="price">L.L 180,000</div>
+    </div>
+
+  </div>
+</section>
+<p>_______________________________________________</p>
+<!--Appetizers-->
+   <section id="Appetizers" class="section">
+   <h2>🍽️ APPETIZERS</h2>
+<div class="products">
+
+      <div class="product-card">
+      <img src="https://img.freepik.com/premium-photo/hummus-container-viewed-from-isolated-white_908985-119688.jpg">
+      <h3>Hummus</h3>
+      <p class="desc">مع 2 رغيف خبز وعلبة زيت زيتون</p>
+              <button onclick="addToCart('Hummus',4)">Add to Cart</button>
+
+      <div class="price">L.L 190,000</div>
+    </div>
+
+    
+
+    <div class="product-card">
+      <img src="https://www.bytheforkful.com/wp-content/uploads/2024/02/batata-harra-4.jpg" >
+      <h3>Batata harra</h3>
+      <p class="desc">مع رغف خبز وحامض</p>
+                    <button onclick="addToCart('Batata harra',4)">Add to Cart</button>
+
+      <div class="price">L.L 150,000</div>
+    </div>
+
+
+ <div class="product-card">
+      <img src="https://www.bytheforkful.com/wp-content/uploads/2024/02/batata-harra-4.jpg" >
+      <h3>Batata harra</h3>
+      <p class="desc">مع رغف خبز وحامض</p>
+                    <button onclick="addToCart('Batata harra',4)">Add to Cart</button>
+
+      <div class="price">L.L 150,000</div>
+    </div>
+
+     <div class="product-card">
+      <img src="https://www.bytheforkful.com/wp-content/uploads/2024/02/batata-harra-4.jpg" >
+      <h3>Batata harra</h3>
+      <p class="desc">مع رغف خبز وحامض</p>
+                    <button onclick="addToCart('Batata harra',4)">Add to Cart</button>
+
+      <div class="price">L.L 150,000</div>
+    </div>
+
+
+
+    <div class="product-card">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.Dt7msp9WKOI5bFfWovaGNQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+      <h3>french fries</h3>
+      <p class="desc">S/M/L</p>
+         <button onclick="addToCart('french fries',4)">Add to Cart</button>
+
+      <div class="price">L.L 180,000</div>
+    </div>
+
+  </div>
+</section>
+<p>_______________________________________________</p>
+<!--sOFT-DRINKS-->
+ <section id="Soft-Drinks" class="section">
+   <h2>SOFT-DRINKS</h2>
+<div class="pro">
+
+   <div class="product-card">
+      <img src="rimoff.jpeg">
+      <h3>Rim Sparkling Water</h3>
+      <p class="desc">Never feel thirsty!</p>
+               <button onclick="addToCart('Rim Sparkling Water',4)">Add to Cart</button>
+
+      <div class="price">L.L 120,000</div>
+    </div>
+     
+
+    <div class="product-card">
+      <img src="rim2.jpeg" >
+      <h3>Rim 330ML</h3>
+      <p class="desc">Never feel thirsty!</p>
+           <button onclick="addToCart('Rim 330ML',4)">Add to Cart</button>
+
+      <div class="price">L.L 70,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="Balkis.jpeg">
+      <h3>Balkis Juice</h3>
+      <p class="desc">Orange, Mawardi, Lemon, Apple</p>
+                 <button onclick="addToCart('Balkis Juice',4)">Add to Cart</button>
+
+      <div class="price">L.L 180,000</div>
+      
+    </div>
+<div class="product-card">
+      <img src="https://www.freeiconspng.com/uploads/pepsi-png-image-22.png">
+      <h3>Pepsi</h3>
+      <p class="desc">Never feel thirsty!</p>
+           <button onclick="addToCart('Pepsi',4)">Add to Cart</button>
+
+      <div class="price">L.L 120,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://ik.imagekit.io/pimberly/595e406f0f15f30010780448/tr:w-1000,h-1000,cm-pad_resize/e00c7c6e/5d70c6b06cb2114d580001dc41a8fa17.jpg?product_name=7-Up-Lemon-and-Lime-Carbonated-Canned-Soft-Drink-330ml-(Pack-of-24)-402010.jpg">
+      <h3>7up</h3>
+      <p class="desc">Never feel thirsty!</p>
+                 <button onclick="addToCart('7up',4)">Add to Cart</button>
+
+      <div class="price">L.L 120,000</div>
+    </div>
+
+    <div class="product-card">
+      <img src="LABAN.jpeg">
+      <h3>LABAN</h3>
+      <p class="desc">Never feel thirsty!</p>
+                       <button onclick="addToCart('LABAN',4)">Add to Cart</button>
+
+      <div class="price">L.L 120,000</div>
+    </div>
+
+    
+  </div>
+    
+
+  
+</section>
+
+  <section id="contact" class="section"></section>
+            
+  
+   <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+  <h2>Contact</h2>
+
+  <div class="contact-card">
+
+    <div class="contact-info">
+      <p>
+        <i class="bi bi-geo-alt"></i>
+        Beirut & Saida, Lebanon
+      </p>
+
+      <p>
+        <i class="bi bi-telephone"></i>
+        Saida:
+        <a href="tel:03021815">03 021 815</a>
+      </p>
+
+      <p>
+        <i class="bi bi-telephone"></i>
+        Beirut:
+        <a href="tel:81607677">81 607 677</a>
+      </p>
+
+      <p>
+        <i class="bi bi-clock"></i>
+        Mon – Sat: 10:00 AM – 1:30 AM<br>
+        Sun: 10:00 AM – 1:00 AM
+      </p>
+    </div>
+<h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 20px;text-align: center;">social</h1>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/farid.sandwich" target="_blank">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/Farid Sandwich" target="_blank">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="https://www.threads.net/farid.sandwich" target="_blank">
+        <i class="bi bi-threads"></i>
+      </a>
+    </div>
+    <h4 style="margin-bottom: 10px;">Share your experience with us ⭐</h4>
+
+    <form action="https://formspree.io/f/xbdljnol" method="POST" class="contact-form">
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  </div>
+
+  <script>
+let cart = [];
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  updateCart();
+}
+
+function updateCart() {
+  const cartItemsDiv = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+
+  cartItemsDiv.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    cartItemsDiv.innerHTML += `
+      <p>${item.name} - $${item.price}
+      <button onclick="removeItem(${index})">X</button></p>
+    `;
+    total += item.price;
+  });
+
+  cartTotal.innerText = "Total: $" + total;
+}
+
+function removeItem(i) {
+  cart.splice(i, 1);
+  updateCart();
+}
+
+function toggleCart() {
+  document.getElementById("cartSidebar").classList.add("active");
+}
+function openCheckout() {
+  // Show the popup
+  document.getElementById("checkoutPopup").style.display = "block";
+  // If the sidebar needs to be open to see the popup, add this:
+  document.getElementById("cartSidebar").style.display = "block"; 
+}
+
+function CloseCart() {
+  document.getElementById("cartSidebar").classList.remove("active");
+}
+function openCart() {
+  document.getElementById("cartSidebar").style.display = "block";
+}
+
+function closeCheckout() {
+  document.getElementById("checkoutPopup").style.display = "none";
+}
+
+
+
+function sendOrder() {
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let location = document.getElementById("location").value;
+  let areaFee = Number(document.getElementById("deliveryArea").value);
+  let notes = document.getElementById("notes").value;
+
+  let total = cart.reduce((sum, i) => sum + i.price, 0) + areaFee;
+
+  let orderText =
+    `New Order:%0A` +
+    `------------------%0A` +
+    `Name: ${name}%0A` +
+    `Phone: ${phone}%0A` +
+    `Location: ${location}%0A` +
+    `Delivery Fee: $${areaFee}%0A` +
+    `------------------%0A` +
+    `Items:%0A`;
+
+  cart.forEach(item => {
+    orderText += `${item.name} - $${item.price}%0A`;
+  });
+
+  orderText +=
+    `------------------%0A` +
+    `Total: $${total}%0A` +
+    `Notes: ${notes}%0A`;
+
+  let whatsappURL = `https://wa.me/76618272?text=${orderText}`;
+
+  window.open(whatsappURL, "_blank");
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+
